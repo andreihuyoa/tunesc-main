@@ -4,19 +4,29 @@ function getUserProfile() {
       Authorization: "Bearer " + window.access_token,
     },
   })
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
     .then((data) => {
-      // Update the HTML elements with the user profile data
-      document.getElementById("spot_name").textContent = data.display_name;
-      document.getElementById("spot_email").textContent = data.email;
-      document.getElementById("spot_followers").textContent =
-        data.followers.total;
-      document.getElementById("spot_picture").src = data.images[0].url;
-      document.getElementById("spot_country").textContent = data.country;
+      // Update the HTML element with the user profile picture
+      const profilePicture = document.getElementById("spot_picture");
+      
+      // Check if images array is not empty before accessing the URL
+      if (data.images && data.images.length > 0) {
+        profilePicture.src = data.images[0].url;
+      } else {
+        // Handle the case where there is no profile picture
+        profilePicture.src = "path_to_default_image.jpg"; // Replace with the path to your default image
+      }
     })
     .catch((error) => {
-      console.error("Error:", error);
+      console.error("Error:", error.message);
     });
 }
 
-getUserProfile(window.access_token);
+
+
+getUserProfile();
