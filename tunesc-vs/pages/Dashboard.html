@@ -3,8 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- confirm css -->
-    <link rel="stylesheet" href="/tunesc-vs/styles/confirm.css" />
     <link rel="stylesheet" href="/tunesc-vs/styles/dashboard.css" />
     <title>Dashboard</title>
     <script src="/tunesc-vs/components/spot.js"></script>
@@ -81,11 +79,13 @@
           <button type="submit" class="btn btn-generate">
             Generate Playlist
           </button>
-          <button type="button" id="listenOnSpotifyBtn" class="btn btn-listen" style="display: none" href="https://open.spotify.com/?">
-            Listen on Spotify
-          </button>
         </form>
       </div>
+        <div class="generate-button">
+          <a id="listenOnSpotifyBtn" target=”_blank” class="btn btn-listen" style="display: none" href="open.spotify.com">
+            Listen on Spotify</a>
+        </div>
+
 
       <!-- Playlists will be added here!! -->
       <div id="trackListContainer"></div>

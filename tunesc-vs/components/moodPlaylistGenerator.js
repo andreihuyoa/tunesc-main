@@ -4,7 +4,7 @@ function initializeApp() {
 
   // Add event listeners or other initialization logic here
   const moodForm = document.getElementById('moodForm');
-  moodForm.addEventListener('submit', function(event) {
+  moodForm.addEventListener('click', function(event) {
     event.preventDefault();
     const selectedMood = document.getElementById('moodDropdown').value;
     generatePlaylistForMood(selectedMood);
@@ -14,7 +14,6 @@ function initializeApp() {
 
 // Initialize the application when the page is fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-  const moodForm = document.getElementById('moodForm');
   
   // Call the function from spot.js to ensure the access token is retrieved from the URL
   if (typeof getAccessTokenFromUrl === "function") { 
