@@ -8,10 +8,14 @@
     <link rel="stylesheet" href="/tunesc-vs/styles/dashboard.css" />
     <link rel="stylesheet" href="/tunesc-vs/styles/settings.css" />
     <title>Settings</title>
+    <!-- firebase -->
+    <script type="module" src="/tunesc-vs/auth/signin.js"></script>
+    <script type="module" src="/tunesc-vs/auth/signup.js"></script>
+    <!-- js scripts -->
     <script src="/tunesc-vs/components/spot.js"></script>
     <script src="/tunesc-vs/auth/signout.js"></script>
     <script src="/tunesc-vs/components/spotProfile.js"></script>
-    <script src="/tunesc-vs/components/accountDeletion.js"></script>
+    <script type="module" src="/tunesc-vs/components/accountDeletion.js"></script>
     <script>
       // Initialize the token extraction process when the window is fully loaded
       window.onload = function() {
@@ -72,11 +76,6 @@
         <button id="delete-account-btn" class="btn delete-account-button">Delete My Account</button>
       </div>
     </div>
-
-    <!-- firebase -->
-    <script type="module" src="/tunesc-vs/auth/signin.js"></script>
-    <script type="module" src="/tunesc-vs/auth/signup.js"></script>
-    
 
     <!-- fontawesome icons -->
     
