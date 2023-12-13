@@ -1,46 +1,43 @@
+import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
 import { getAuth, deleteUser } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
-import { getDatabase, ref, remove } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-database.js";
 
-// Assuming firebaseConfig is the same as in signup.js and has been initialized there.
-// If it's not the case, you'll need to initializeApp(firebaseConfig) here as well.
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDZ2X6a_hSxKdTbbj20WTztJx1YGv8q5k8",
+  authDomain: "tunesc-25041.firebaseapp.com",
+  projectId: "tunesc-25041",
+  storageBucket: "tunesc-25041.appspot.com",
+  messagingSenderId: "78861021693",
+  appId: "1:78861021693:web:21177637753316c7b72994",
+  // other config var galing firebase
+};
 
-// Initialize Firebase only if it hasn't been initialized
 if (!getApps().length) {
   initializeApp(firebaseConfig);
 }
 const auth = getAuth();
-const db = getDatabase();
 
-document.getElementById('delete-account-btn').addEventListener('click', function() {
+function deleteAccount() {
   const user = auth.currentUser;
   
-  if(user) {
-    if (window.confirm("Are you sure you want to delete your account? This cannot be undone.")) {
-      // Delete the user's account
-      deleteUser(user).then(() => {
-        // User deleted
-        alert('Your account has been deleted.');
-
-        // You may also want to delete the user's data from the database
-        const userRef = ref(db, "UsersAuthList/" + user.uid);
-        remove(userRef).then(() => {
-          // Data deleted
-          console.log('User data deleted from the database.');
-        }).catch((error) => {
-          console.error('Error removing user data:', error);
+  if (user) {
+    if (window.confirm("Are you sure you want to delete your account? This action cannot be undone.")) {
+      
+      deleteUser(user)
+        .then(() => {
+          console.log("Account deleted successfully.");
+          
+          window.location.assign('Login.html');
+        })
+        .catch((error) => {
+          console.error("Error deleting account:", error);
+          alert("An error occurred while trying to delete your account.");
         });
-
-        // Redirect to home page or login page after deletion
-        window.location.href = '/login.html';
-
-      }).catch((error) => {
-        // An error occurred
-        alert('An error occurred while trying to delete your account. Please try again.');
-        console.error('Error deleting user:', error);
-      });
     }
   } else {
-    alert('No user is signed in to delete.');
+    alert("No user signed in.");
   }
-});
+}
+
+
+document.getElementById('delete-account-btn').addEventListener('click', deleteAccount);
