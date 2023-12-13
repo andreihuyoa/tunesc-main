@@ -145,7 +145,7 @@ function showListenOnSpotifyButton(playlistId) {
   const listenBtn = document.getElementById('listenOnSpotifyBtn');
   if (listenBtn) {
       listenBtn.style.display = 'inline-block'; // Show the button
-      listenBtn.href = `https://open.spotify.com/playlist/${playlistId}`; // Set the correct Spotify URL
+      listenBtn.href = `https://open.spotify.com`; // Set the correct Spotify URL
   }
 }
 
@@ -168,7 +168,7 @@ function createPlaylist(userId) {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      name: 'New Playlist',
+      name: 'Created by TuneSculpt',
       public: false // Change to true if you want the playlist to be public
     })
   })

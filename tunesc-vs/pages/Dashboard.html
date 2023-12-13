@@ -27,12 +27,6 @@
     <div class="sidebar">
       <div class="logo"></div>
       <ul class="menu">
-        <li>
-          <a href="Profile.html">
-            <i class="fa-solid fa-address-book"></i>
-            <span>Profile</span>
-          </a>
-        </li>
         <li class="active">
           <a href="Dashboard.html">
             <i class="fa-solid fa-chess-board"></i>
@@ -58,9 +52,20 @@
       <div class="header--wrapper">
         <div class="header--title">
           <span>Welcome to your</span>
-          <h2>Dashboard</h2>
+          <h2 class="get--user-name">Dashboard</h2>
         </div>
+        <h2 class="user"></h2>
       </div>
+      <!-- display the name registered from firebase -->
+      <script>
+        const userInfo = JSON.parse(sessionStorage.getItem("user-info"));
+        if (userInfo && userInfo.name) {
+          const userNameElement = document.querySelector(".user");
+          if (userNameElement) {
+            userNameElement.textContent = `${userInfo.name}`;
+          }
+        }
+      </script>
       <!-- Mood Selection Dropdown -->
       <div>
         <form id="moodForm">
@@ -76,12 +81,7 @@
           <button type="submit" class="btn btn-generate">
             Generate Playlist
           </button>
-          <button
-            type="button"
-            id="listenOnSpotifyBtn"
-            class="btn btn-listen"
-            style="display: none"
-          >
+          <button type="button" id="listenOnSpotifyBtn" class="btn btn-listen" style="display: none" href="https://open.spotify.com/?">
             Listen on Spotify
           </button>
         </form>
