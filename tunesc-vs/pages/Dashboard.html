@@ -12,9 +12,9 @@
     <script src="/tunesc-vs/components/spotProfile.js"></script>
     <script>
       // Initialize the token extraction process when the window is fully loaded
-      window.onload = function() {
-      // This function should exist in moodPlaylistGenerator.js
-      initializeApp();
+      window.onload = function () {
+        // This function should exist in moodPlaylistGenerator.js
+        initializeApp();
       };
     </script>
     <script src="/tunesc-vs/components/moodPlaylistGenerator.js"></script>
@@ -57,44 +57,46 @@
     <div class="main--content">
       <div class="header--wrapper">
         <div class="header--title">
-          <span>Primary</span>
+          <span>Welcome to your</span>
           <h2>Dashboard</h2>
         </div>
-        <div class="user--info">
-          <!-- lagay galing firebase yung user image or sa spotify -->
-          <img id="spot_picture" alt="Spotify Profile Picture" />
-        </div>
       </div>
-            <!-- Mood Selection Dropdown -->
-            <div>
-              <form id="moodForm">
-                <label for="moodDropdown">Select your mood:</label>
-                <select id="moodDropdown" name="moods">
-                  <option value="Happy">Happy</option>
-                  <option value="Sad">Sad</option>
-                  <option value="Energetic">Energetic</option>
-                  <option value="Calm">Calm</option>
-                  <option value="Rage">Rage</option>
-                  <!-- ... other options ... -->
-                </select>
-                <button type="submit" class="btn btn-generate">Generate Playlist</button>
-                <button type="button" id="listenOnSpotifyBtn" class="btn btn-listen" style="display:none;">Listen on Spotify</button>
-              </form>
-            </div>
+      <!-- Mood Selection Dropdown -->
+      <div>
+        <form id="moodForm">
+          <label for="moodDropdown">Select your mood:</label>
+          <select id="moodDropdown" name="moods">
+            <option value="Happy">Happy</option>
+            <option value="Sad">Sad</option>
+            <option value="Energetic">Energetic</option>
+            <option value="Calm">Calm</option>
+            <option value="Rage">Rage</option>
+            <!-- ... other options ... -->
+          </select>
+          <button type="submit" class="btn btn-generate">
+            Generate Playlist
+          </button>
+          <button
+            type="button"
+            id="listenOnSpotifyBtn"
+            class="btn btn-listen"
+            style="display: none"
+          >
+            Listen on Spotify
+          </button>
+        </form>
+      </div>
 
-          <!-- Playlists will be added here!! -->
-          <div id="trackListContainer"></div>
+      <!-- Playlists will be added here!! -->
+      <div id="trackListContainer"></div>
     </div>
-
-    
 
     <!-- firebase -->
     <script type="module" src="/tunesc-vs/auth/signin.js"></script>
     <script type="module" src="/tunesc-vs/auth/signup.js"></script>
-    
 
     <!-- fontawesome icons -->
-    
+
     <script
       src="https://kit.fontawesome.com/64d29af423.js"
       crossorigin="anonymous"
