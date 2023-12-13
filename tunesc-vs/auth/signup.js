@@ -38,6 +38,15 @@ let RegisForm = document.getElementById("RegisForm");
 let RegisterUser = (evt) => {
   evt.preventDefault();
 
+  let password = PassInp.value;
+  let passwordConf = PassConfirmInp.value;
+
+  //checks if it matches
+  if (password !== passwordConf) {
+    alert("Password does not match");
+    return;
+  }
+
   createUserWithEmailAndPassword(auth, EmailInp.value, PassInp.value)
     .then((credentials) => {
       //rest of the info will be put into the realtime database
@@ -45,6 +54,12 @@ let RegisterUser = (evt) => {
       set(ref(db, "UsersAuthList/" + credentials.user.uid), {
         name: DispnameInp.value,
       });
+      alert("Registration Sucess. You will be redirected");
+
+      setTimeout(() => {
+        window.location.href = "../pages/Login.html";
+      }, 1000);
+      // 1 second
     })
     .catch((error) => {
       //show error, refactor this later to a pop up
