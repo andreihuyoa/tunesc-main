@@ -150,8 +150,6 @@ function showListenOnSpotifyButton(playlistId) {
 }
 
 
-
-
 function createOrUpdatePlaylist(userId, trackUris) {
   return createPlaylist(userId)
     .then(playlistId => addTracksToPlaylist(userId, playlistId, trackUris))

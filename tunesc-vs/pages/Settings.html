@@ -6,10 +6,12 @@
     <!-- confirm css -->
     <link rel="stylesheet" href="/tunesc-vs/styles/confirm.css" />
     <link rel="stylesheet" href="/tunesc-vs/styles/dashboard.css" />
-    <title>Dashboard</title>
+    <link rel="stylesheet" href="/tunesc-vs/styles/settings.css" />
+    <title>Settings</title>
     <script src="/tunesc-vs/components/spot.js"></script>
     <script src="/tunesc-vs/auth/signout.js"></script>
     <script src="/tunesc-vs/components/spotProfile.js"></script>
+    <script src="/tunesc-vs/components/accountDeletion.js"></script>
     <script>
       // Initialize the token extraction process when the window is fully loaded
       window.onload = function() {
@@ -17,10 +19,8 @@
       initializeApp();
       };
     </script>
-    <script src="/tunesc-vs/components/moodPlaylistGenerator.js"></script>
   </head>
   <body>
-    <!-- dito mag reredirect yung user after login -->
 
     <!-- sidebar -->
 
@@ -33,13 +33,13 @@
             <span>Profile</span>
           </a>
         </li>
-        <li class="active">
-          <a href="#">
+        <li>
+          <a href="Dashboard.html">
             <i class="fa-solid fa-chess-board"></i>
             <span>Dashboard</span>
           </a>
         </li>
-        <li>
+        <li class="active">
           <a href="Settings.html">
             <i class="fa-solid fa-toolbox"></i>
             <span>Settings</span>
@@ -58,35 +58,20 @@
       <div class="header--wrapper">
         <div class="header--title">
           <span>Primary</span>
-          <h2>Dashboard</h2>
+          <h2>Settings</h2>
         </div>
         <div class="user--info">
           <!-- lagay galing firebase yung user image or sa spotify -->
           <img id="spot_picture" alt="Spotify Profile Picture" />
         </div>
       </div>
-            <!-- Mood Selection Dropdown -->
-            <div>
-              <form id="moodForm">
-                <label for="moodDropdown">Select your mood:</label>
-                <select id="moodDropdown" name="moods">
-                  <option value="Happy">Happy</option>
-                  <option value="Sad">Sad</option>
-                  <option value="Energetic">Energetic</option>
-                  <option value="Calm">Calm</option>
-                  <option value="Rage">Rage</option>
-                  <!-- ... other options ... -->
-                </select>
-                <button type="submit" class="btn btn-generate">Generate Playlist</button>
-                <button type="button" id="listenOnSpotifyBtn" class="btn btn-listen" style="display:none;">Listen on Spotify</button>
-              </form>
-            </div>
-
-          <!-- Playlists will be added here!! -->
-          <div id="trackListContainer"></div>
+      <!-- Account Deletion Section -->
+      <div class="account-deletion-container">
+        <h2>Delete Account</h2>
+        <p>Please be aware that deleting your account is irreversible. You will lose access to your data and all associated services.</p>
+        <button id="delete-account-btn" class="btn delete-account-button">Delete My Account</button>
+      </div>
     </div>
-
-    
 
     <!-- firebase -->
     <script type="module" src="/tunesc-vs/auth/signin.js"></script>
