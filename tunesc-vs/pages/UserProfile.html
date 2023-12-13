@@ -35,48 +35,48 @@
     <script type="module" src="/tunesc-vs/auth/signin.js"></script>
 
     <script>
-       let UserCreds = JSON.parse(sessionStorage.getItem("user-creds"));
-  let UserInfo = JSON.parse(sessionStorage.getItem("user-info"));
+      let UserCreds = JSON.parse(sessionStorage.getItem("user-creds"));
+      let UserInfo = JSON.parse(sessionStorage.getItem("user-info"));
 
-  let MsgHead = document.getElementById("spot_name");
-  let GreetHead = document.getElementById("spot_email");
-  let SignoutBtn = document.getElementById("SignoutBtn");
+      let MsgHead = document.getElementById("spot_name");
+      let GreetHead = document.getElementById("spot_email");
+      let SignoutBtn = document.getElementById("SignoutBtn");
 
-  let Signout = () => {
-    sessionStorage.removeItem("user-creds");
-    sessionStorage.removeItem("user-info");
-    window.location.href = "Login.html";
-  };
+      let Signout = () => {
+        sessionStorage.removeItem("user-creds");
+        sessionStorage.removeItem("user-info");
+        window.location.href = "Login.html";
+      };
 
-  let CheckCred = () => {
-    // Check if the elements exist before trying to set their innerText
-    if (!sessionStorage.getItem("user-creds")) {
-      window.location.href = "Login.html";
-    } else {
-      // Check if the elements exist before trying to set their innerText
-      if (MsgHead) {
-        MsgHead.innerText = `user with email "${UserCreds.email}" logged in`;
-      }
+      let CheckCred = () => {
+        // Check if the elements exist before trying to set their innerText
+        if (!sessionStorage.getItem("user-creds")) {
+          window.location.href = "Login.html";
+        } else {
+          // Check if the elements exist before trying to set their innerText
+          if (MsgHead) {
+            MsgHead.innerText = `user with email "${UserCreds.email}" logged in`;
+          }
 
-      if (GreetHead) {
-        GreetHead.innerText = `welcome "${UserInfo.name}"!`;
-      }
-    }
-  };
+          if (GreetHead) {
+            GreetHead.innerText = `welcome "${UserInfo.name}"!`;
+          }
+        }
+      };
 
-  window.addEventListener("load", CheckCred);
-  SignoutBtn.addEventListener("click", Signout);
+      window.addEventListener("load", CheckCred);
+      SignoutBtn.addEventListener("click", Signout);
     </script>
 
-<script>
-  function onPageLoad() {
-    // Your logic for page load
-    getUserProfile();
-  }
+    <script>
+      function onPageLoad() {
+        // Your logic for page load
+        getUserProfile();
+      }
 
-  // Attach the onload event to onPageLoad
-  window.onload = onPageLoad;
-</script>
+      // Attach the onload event to onPageLoad
+      window.onload = onPageLoad;
+    </script>
     <!-- firebase -->
     <script type="module" src="/tunesc-vs/auth/signin.js"></script>
     <script type="module" src="/tunesc-vs/auth/signup.js"></script>
