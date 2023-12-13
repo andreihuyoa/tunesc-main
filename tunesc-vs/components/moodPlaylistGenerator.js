@@ -4,7 +4,7 @@ function initializeApp() {
 
   // Add event listeners or other initialization logic here
   const moodForm = document.getElementById('moodForm');
-  moodForm.addEventListener('click', function(event) {
+  moodForm.addEventListener('submit', function(event) {
     event.preventDefault();
     const selectedMood = document.getElementById('moodDropdown').value;
     generatePlaylistForMood(selectedMood);
